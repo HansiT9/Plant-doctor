@@ -11,7 +11,7 @@
 
   </head>
   
-  <body style="background-image: linear-gradient(to right,white, #9070f4">
+  <body style="background-image: linear-gradient(to right,white,green)">
 
 
   <script>
@@ -24,67 +24,86 @@
     <main class="main" style="backg22round-color:rgba(2, 9, 71,0.2)">
       <!-- HOME SECTION -->
       <section class="home bd_grid" id="home" >
- 
-       
-        <div class="home_data" data-aos="fade-down" data-aos-delay="750" ">
-          
+        
+        <table>
+        <tr>
+        <td>
+        <div class="home_data" data-aos="fade-down" data-aos-delay="750" style="background:rgba(0,0,0,0.01);">
+
           <h2 class="home_title" style="font-size:30px">
-          <br><br><br> Our Result :
-          <br><span class="home_title-color">{{pred_output}}</span>
+          <br>Our Result :<span class="home_title-color" style="padding:20px;">{{pred_output}}</span> <br>
+          <br>Result accuracy :<span class="home_title-color" style="padding:20px;">{{pred_output_ac}}</span>
           </h2>
-        </div>
-        <div class="home_data" data-aos="fade-down" data-aos-delay="450">
-           <h2 class="home_title" style="font-size:30px">
-            <br>Result accuracy :<br><span class="home_title-color">{{pred_output_ac}}</span>
-          </h2>
-          <br>
-          <br>
           <a href="/index" class="button"> back to chatbot</a>
-               
-                <h2 class="home_title" data-aos="fade-down" data-aos-delay="800" style="font-size:30px">
-                <br> Solutions :<br><span class="home_title-color">{{doctor}}</span>
-                </h2>
+        </div>
+        </td>
+        <td>
+        <div data-aos="fade-down" data-aos-delay="750">
+          <br><br><br>
+          <img src="{{user_image}}" style="border-radius:25px;" width="300">
+        </div>
+        </td> </tr> </table>
+
+        <br>
+
+        <div class="home_data" data-aos="fade-down" data-aos-delay="450" style="background:rgba(0,0,0,0.01);">
+        <br>    
+
+
+                <div data-aos="fade-down" data-aos-delay="800" style="border-radius:25px;background-color:rgba(255,255,255,.8);padding:40px;">
+
+                <div class="home_data" data-aos="fade-down" data-aos-delay="500" style="border-radius:25px;background-color:rgba(0,255,0,.3);padding:40px;">
+                <p data-aos="fade-down" data-aos-delay="400">{{etcc}}</p>
+                </div>
+                <br>
+                <h2 class="home_title" data-aos="fade-down" data-aos-delay="800" style="font-size:25px">Solutions :</h2>
+                <p data-aos="fade-down" data-aos-delay="400">{{doctor1}}</p>
+                <br>
+                <p data-aos="fade-down" data-aos-delay="400">{{doctor2}}</p>
+                <br>
+                <p data-aos="fade-down" data-aos-delay="400">{{doctor3}}</p>
+                <br>
+                <p data-aos="fade-down" data-aos-delay="400">{{doctor4}}</p>
+                <br>
+                <p data-aos="fade-down" data-aos-delay="400">{{doctor5}}</p>
+                <br>
+                <p data-aos="fade-down" data-aos-delay="400">{{doctor6}}</p>
+                <div>
+                
                   
 
             
           
          
          </div>
-  <div class="home_data" data-aos="fade-down" data-aos-delay="450">
-         <img src="{{url_for('static',filename='Telehealth.gif')}}"  class="work_img" width="30%" height="20%"> 
-</div>
+ 
 
         <div class="home_social">
           <a href="#" class="home_social-icon" data-aos="fade-down"
-            ><i class="bx bxl-facebook-circle"></i
+            ><i class="bx bxl-faceboodfgk-circle"></i
           ></a>
           <a
             href="#"
             class="home_social-icon"
             data-aos="fade-down"
             data-aos-delay="250"
-            ><i class="bx bxl-instagram"></i
+            ><i class="bx bxl-instagramsf"></i
           ></a>
           <a
             href="#"
             class="home_social-icon"
             data-aos="fade-down"
             data-aos-delay="300"
-            ><i class="bx bxl-twitter"></i
+            ><i class="bx bxl-twittersdf"></i
           ></a>
           <a
             href="#"
             class="home_social-icon"
             data-aos="fade-down"
             data-aos-delay="350"
-            ><i class="bx bxl-github"></i
+            ><i class="bx bxl-githubxcd"></i
           ></a>
         </div>
-
-        <div class="home_img" data-aos="fade-down" data-aos-delay="600">
-          <div class="work_img" data-aos="fade-left" data-aos-delay="550" >
-            <img src="{{user_image}}"> 
-          </div>
        
       </section>
       

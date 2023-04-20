@@ -139,7 +139,7 @@ body {
   flex-direction: row-reverse;
 }
 .right-msg .msg-bubble {
-  background:rgba(0,0,250,.8);
+  background:rgba(0,140,0,.8);
   color: #fff;
   border-bottom-right-radius: 0;
 }
@@ -193,16 +193,16 @@ body {
 </head>
 
 
- <body style="background-image: linear-gradient(to right,black, #9070f4">
+ <body style="background-image: linear-gradient(to right,white,green)">
      
 
 
 
   <!-- partial:index.partial.html -->
   <section class="msger">
-    <header class="msger-header" style="color:white;background:rgba(0,0,180,.6)">
+    <header class="msger-header" style="color:white;background:rgba(0,140,0,.6)">
       <div class="msger-header-title" >
-        <i class="fas fa-bug" ></i> Ai Chatbot for Disease-Prediction <i class="fas fa-bug"></i>
+        <i class="fas fa-bug" ></i> Dr. Tea for Disease-Prediction <i class="fas fa-bug"></i>
       </div>
     </header>
 
@@ -213,12 +213,12 @@ body {
 
         <div class="msg-bubble">
           <div class="msg-info">
-            <div class="msg-info-name">AiBot</div>
+            <div class="msg-info-name">Dr.tea</div>
             <div class="msg-info-time">12:45</div>
           </div>
 
           <div class="msg-text">
-            Hi, welcome to AiBot! Go ahead and send me a message. 😄
+            Hi, welcome to Dr.tea ! Go ahead and send me a message. 😄
           </div>
         </div>
       </div>
@@ -227,7 +227,7 @@ body {
 
     <form class="msger-inputarea">
       <input type="text" class="msger-input" id="textInput" placeholder="Enter your message...">
-      <button type="submit" class="msger-send-btn" style="background:rgba(0,0,180,.6)">Send</button>
+      <button type="submit" class="msger-send-btn" style="background:rgba(0,140,0,.6)">Send</button>
     </form>
   </section>
   <!-- partial -->
@@ -243,7 +243,7 @@ body {
     // Icons made by Freepik from www.flaticon.com
     const BOT_IMG = "{{url_for('static',filename='ch.gif')}}";
     const PERSON_IMG = "{{url_for('static',filename='ch.gif')}}";
-    const BOT_NAME = "AiBot";
+    const BOT_NAME = "Dr.Tea";
     const PERSON_NAME = "You";
 
     msgerForm.addEventListener("submit", event => {
@@ -282,7 +282,7 @@ body {
     // AI msg respond section
     function botResponse(rawText) {
         if(rawText.search("hi")>-1 || rawText.search("hello")>-1 ){
-           rawText = "please enter your name  ";
+           rawText = "please type ' yes ' to upload Picture";
            appendMessage(BOT_NAME, BOT_IMG, "left",rawText);
            responsiveVoice.speak(rawText);
            

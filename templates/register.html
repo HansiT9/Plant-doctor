@@ -16,8 +16,6 @@
         <div class="content">
           <h3>One of us ?</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-            laboriosam ad deleniti.
           </p>
           <a class="sign-up-btn" href="/loginpage"> Sign in</a>
         </div>
@@ -27,41 +25,79 @@
       </div>
 
       <div class="forms-container">
-        <form id="register-form" class="sign-in-form"  action="/register" method="post"  enctype="multipart/form-data"  onsubmit="showloading()" class="sign-in-form">
+        <form id="register-form" class="sign-in-form" name="myForm" action="/register" onsubmit="return validateForm()" method="post"  enctype="multipart/form-data"   class="sign-in-form">
           <h2 class="title">Sign Up</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input id="username" type="text" placeholder="Username" name="username"/>
+            <input id="username" type="text" minlength="5" required placeholder="Username" name="username"/>
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input id="password" type="password" placeholder="Password" name="password" />
+            <input id="password" type="password" minlength="6" required placeholder="Password" name="password" />
           </div>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input id="email" type="email" placeholder="Email" name="email" />
+            <input id="email" type="email" required placeholder="Email" name="email" />
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input id="nic" type="text" placeholder="Nic"  name="nic"/>
+            <input id="nic" type="text" minlength="10" maxlength="14" required placeholder="Nic"  name="nic" pattejjjhrn="[1-9]{9}[v]{1}"/>
           </div>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input id="DOB" type="date" placeholder="DOB" name="dob"/>
+            <input id="DOB" type="date" required placeholder="DOB" name="dob"/>
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input id="pNumber" type="text" placeholder="Phone Number" name="phonenumber"/>
+            <input id="pNumber" type="tel" minlength="10" maxlength="10" required placeholder="Phone Number" name="phonenumber"/>
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input id="address" type="text" placeholder="Address" name="address"/>
+            <input id="address" type="text" required placeholder="Address" name="address"/>
           </div>
           <input type="submit" value="Register" class="btn solid" />
         </form>
       </div>
     </div>
 
-    <script src="/register.js"></script>
+<script>
+function validateForm() {
+  let x = document.forms["myForm"]["nic"].value;
+  let num = document.forms["myForm"]["pNumber"].value;
+
+  for (var i = 0; i < num.length; i++) {
+      if (/[0-9]/.test(num[i])==false){
+    	alert("your numbers is not valid");
+    	return false;
+      }
+  }
+
+
+
+  if (x.length == 10) 
+  {
+
+    if (x.at(-1)!='v'){
+    	alert("please add 'v'");
+    	return false;
+    }
+    if (/[0-9]/.test(x.substr(0,8))==false){
+    	alert("your nic not containe numbers");
+    	return false;
+    }    
+  }
+
+  else if (x.length == 12) {
+    if (/[0-9]/.test(x.substr(0,10))==false){
+    	alert("your nic not containe numbers");
+    	return false;
+    }    
+  }
+  else{ alert("your nic is not valid");
+    	return false; }
+  alert("Registration successfull !");
+  return true;
+}
+</script>
   </body>
 </html>

@@ -16,12 +16,8 @@
         <div class="content">
           <h3>New here ?</h3>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-            ex ratione. Aliquid!
           </p>
-          <form action="/registerpage" method="post"  enctype="multipart/form-data"  onsubmit="showloading()" >
-          <input type="submit" class="btn solid" value="Sign Up" />
-          </form>
+          <a class="sign-up-btn" href="/registerpage">Sign up</a>
         </div>
         <div class="panels-container-bg">
           <img src="{{url_for('static',filename='Telehealth.gif')}}" />
@@ -34,12 +30,13 @@
           <h2 class="title">Sign in</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" name="name"/>
+            <input type="text" value="" placeholder="Username" name="name"/>
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" name="pass"/>
+            <input type="password" value="" placeholder="Password" name="pass"/>
           </div>
+          <p>{{message}}</p>
           <input type="submit" value="Login" class="btn solid" />
         </form>
       </div>

@@ -14,29 +14,83 @@
       href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
     />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+
+<style>
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid green;
+  width: 200px;
+  height: 200px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+
+
+
   </head>
-  <body style="background-image: linear-gradient(to right, white, #48ff00)">
+  
+  <body background="{{url_for('static',filename='bggfgg.gif')}}" style="background-repeat: no-repeat;background-size:1350px 620px">
+   
+       <video autoplay muted loop style="position:fixed;" width="1400px">
+          <source src = "{{url_for('static',filename='bgq.mp4')}}" >
+        </video>
+   
+  
     <!-- Header Section -->
     <header class="header">
       <nav class="nav bd_grid">
-        <div class="logo">
+        <div class="logo" style="position:relative;right:160px;">
           <img src="{{url_for('static',filename='assets/img/logo.jpg')}}" />
-          <h3>TeaGuard</h3>
+          <h3>Dr.Tea</h3>
         </div>
 
         <div class="nav_menu" id="nav_menu">
           <ul class="nav_list">
             <li class="nav_items">
-              <a href="#home" class="nav_link active">Home</a>
+              <a href="#home" class="nav_link active" style="font-size:12px;">Home</a>
             </li>
             <li class="nav_items">
-              <a href="#about" class="nav_link active">About Us</a>
+              <a href="#contact" class="nav_link active" style="font-size:12px;">contact us</a>
             </li>
             <li class="nav_items">
-              <a href="#features" class="nav_link active">Features</a>
+              <a href="#about" class="nav_link active" style="font-size:12px;">About Us</a>
             </li>
             <li class="nav_items">
-              <a href="#owner" class="nav_link active">Owner</a>
+              <a href="#story" class="nav_link active" style="font-size:12px;">Our Story</a>
+            </li>
+            <li class="nav_items">
+              <a href="#features" class="nav_link active" style="font-size:12px;">How its work</a>
+            </li>
+
+
+            <li class="nav_items" style="position:relative;left:160px;">
+              <div style="border-radius:30px;border-style:solid; border-color: green;padding-right:15px;padding-left:15px;">
+                  
+                  <a href="/loginpage" class="nav_link active">sign in</a>
+                  
+              </div>
+              
+            </li>
+            <li class="nav_items" style="position:relative;left:150px;">
+              <div style="border-radius:30px;border-style:solid; border-color: green;padding-right:15px;padding-left:15px;">
+                  
+                  <a href="/registerpage" class="nav_link active">Register now</a>
+                  
+              </div>
             </li>
           </ul>
         </div>
@@ -51,147 +105,171 @@
     <!--Starting of the MAIN PART-->
     <main class="main">
       <!-- HOME SECTION -->
-      <section class="home bd_grid" id="home">
-        <div class="home_data" data-aos="fade-down">
-          <h3 class="home_title">
-            Protect your crops with our advanced plant disease prediction system
-            ensuring a healthy yield
-          </h3>
 
-          <div class="auth">
-            <a href="/registerpage" class="button">Sign Up</a>
-            <a href="/registerpage" class="button">Log In</a>
+      <section class="home bd_grid" id="home">
+        <br>
+        <div class="home_data" data-aos="fade-down" style="border-radius: 25px;background-color:rgba(255,255,255,.6);padding:60px;">
+          <p class="home_title" style="font-size:40px;font-family:Optima">
+             START YOUR DIGITAL JOURNEY to protect your crop
+             WITH Dr.tea 
+             Ensuring a healthy yield
+          </p>
+          <div data-aos="fade-down" style="border-radius: 25px;background-color:rgba(255,255,255,1);padding:50px;">
+          <center><p style="font-size:25px;font-family:Optima">With our innovative digital solution, you can detect early of tea leaf diseases,and Improved crop yields and quality<p> </center>
           </div>
         </div>
+        <br>
 
-        <div class="home_social">
-          <a href="#" class="home_social-icon" data-aos="fade-down"
-            ><i class="bx bxl-facebook-circle"></i
-          ></a>
-          <a
-            href="#"
-            class="home_social-icon"
-            data-aos="fade-down"
-            data-aos-delay="250"
-            ><i class="bx bxl-instagram"></i
-          ></a>
-          <a
-            href="#"
-            class="home_social-icon"
-            data-aos="fade-down"
-            data-aos-delay="300"
-            ><i class="bx bxl-twitter"></i
-          ></a>
-          <a
-            href="#"
-            class="home_social-icon"
-            data-aos="fade-down"
-            data-aos-delay="350"
-            ><i class="bx bxl-github"></i
-          ></a>
-        </div>
       </section>
+
+
+
+
+
+      <section class="home bd_grid" id="contact">
+        <br>
+        <div class="home_data" data-aos="fade-down" style="border-radius: 25px;background-color:rgba(255,255,255,.6);padding:30px;">
+            <h2>Contact Us</h2>
+            <div data-aos="fade-down" style="border-radius: 25px;background-color:rgba(255,255,255,1);padding:50px;">
+                <form action="/contact" id="cont" method="post"  enctype="multipart/form-data"  onsubmit="showloading()" class="sign-in-form">
+                        
+                        <input type="text"  name="firstname" placeholder="Your name.." style="width: 100%;padding: 12px;border: 1px solid #ccc;border-radius: 4px;resize: vertical;"><br><br>
+                        <input type="text"  name="email" placeholder="Your email.." style="width: 100%;padding: 12px;border: 1px solid #ccc;border-radius: 4px;resize: vertical;"><br><br>
+                        <p id="load" style="position: fixed;right:40%;"></p>
+                        <textarea  name="subject" placeholder="Write something.." style="height:200px;width: 100%;padding: 12px;border: 1px solid #ccc;border-radius: 4px;resize: vertical;"></textarea><br><br>
+                        <input type="button" onclick = "load()" value="Submit" style="background-color: #04AA6D;color: white;padding: 12px 20px;border: none;border-radius: 4px; cursor: pointer;float: right;"><br>
+               </form>
+            </div>
+          </div>
+      </section>
+
+
+
+
+
       <!--End of the HOME SECTION -->
 
       <!-- ABOUT SECTION -->
-      <section class="about section" id="about">
-        <h2 class="section-title" data-aos="fade-down">About Us</h2>
-
-        <div class="about_container bd_grid">
-          <div class="about_img" data-aos="fade-left" data-aos-delay="50">
-            <img src="{{url_for('static',filename='assets/img/img1.png')}}" />
-          </div>
-
-          <div>
-            <h2
-              class="about_subtitle"
-              data-aos="fade-left"
-              data-aos-delay="350"
-            >
-              TeaGuard
-            </h2>
-            <p class="about_text" data-aos="fade-left" data-aos-delay="450">
-              This is user friendly system which make medical consultation
-              easily. <br />
-              This saves ample time and also Chatbot make interaction easier.
-              <br />This Can be operated easily by any user
-              <br />
+      <section class="home bd_grid" id="about">
+        <br>
+        <div class="home_data" data-aos="fade-down" style="border-radius: 25px;background-color:rgba(255,255,255,.6);padding:30px;">
+            <h2>About Us</h2>
+            <div data-aos="fade-down" style="border-radius: 25px;background-color:rgba(255,255,255,1);padding:50px;">
+            <p>
+  Welcome to Tea Leaves Disease Prediction, an innovative web application designed to help tea farmers and enthusiasts prevent and manage tea plant diseases.<br><br>
+ Our goal is to provide a simple, user-friendly tool that allows users to quickly and accurately identify common tea Leaves diseases and take appropriate action to protect their crops.<br><br>
+Our team is comprised of experts in plant pathology, machine learning. We have collaborated to create an advanced algorithm that can analyze images of tea leaves and accurately predict the presence of various diseases, including black rot, blister blight, and grey blight add others too.<br><br>
+Our web application is easy to use and accessible from any device with an internet connection. Simply upload an image of your tea leaves and our algorithm will analyze it to determine the likelihood of disease. We also provide information on how to prevent and treat the disease to help you maintain healthy tea plants and maximize your crop yield.<br><br>
+Thank you for choosing Tea Leaves Disease Prediction as your go-to resource for tea plant health. We hope our web application helps you maintain healthy and productive tea plants.<br>
+      
             </p>
+            </div>
           </div>
-        </div>
       </section>
+
+
       <!--End of the  ABOUT SECTION -->
       <!-- features SECTION -->
 
-      <section class="features section" id="features">
-        <h2 class="section-title" data-aos="fade-down">Features</h2>
+      <!-- ABOUT SECTION -->
+      <br><br><br>
+      <section class="home bd_grid" id="story">
+        <br>
+        <div class="home_data" data-aos="fade-down" style="border-radius: 25px;background-color:rgba(255,255,255,.6);padding:30px;">
+            <h2>Our Story</h2>
+            <div data-aos="fade-down" style="border-radius: 25px;background-color:rgba(255,255,255,1);padding:50px;">
+            <p>
+Our Dr. Tea tealeaves disease prediction web was created with one goal in mind: to help tea farmers protect their crops from diseases and increase their yields. As farmers ourselves, we understand the challenges and risks associated with crop management, and we wanted to develop a web that could help farmers overcome these challenges.
+<br><br>
+Our team consists of experienced tea farmers, agricultural experts, and software developers who worked together to create an innovative tealeaves disease prediction web application. We combined our knowledge of tea farming with the latest technologies in machine learning and data analysis to create a tool that is accurate, reliable, and easy to use.
+<br><br>
+Our Dr. Tea web application uses advanced algorithms to analyze environmental data, weather patterns, and other factors to predict potential diseases in tealeaves. The app provides farmers with real-time alerts and recommendations on preventive measures, helping them to take action quickly and minimize crop loss.
+<br><br>
+We believe that our tealeaves disease prediction web app can revolutionize the way tea farmers manage their crops, and we are committed to making it accessible to farmers around the world. Our goal is to empower farmers with the knowledge and tools they need to protect their crops and increase their yields, while also promoting sustainable and environmentally friendly farming practices.
+<br><br>
+Join us on our mission to help tea farmers succeed, one tealeaf at a time.
 
-        <div class="features_container bd_grid">
-          <div class="about_img" data-aos="fade-left" data-aos-delay="50">
+
+            </p>
+            </div>
+          </div>
+      <br><br><br>
+      </section>
+
+
+      <!--End of the  ABOUT SECTION -->
+
+
+
+
+      <!-- features SECTION -->
+      <br><br><br>
+      <section class="home bd_grid" id="features">
+       <br><br><br>
+       <div class="home_data" data-aos="fade-down" style="border-radius: 25px;background-color:rgba(255,255,255,.6);padding:20px;">
+        <h2>How its work</h2>
+        <div class="features_container bd_grid" class="about_text" data-aos="fade-left" data-aos-delay="450">
+
+          <div class="about_img" data-aos="fade-left" data-aos-delay="50" style="border-radius: 25px;background-color:rgba(255,255,255,.6);padding:60px;">
             <img
               src="{{url_for('static',filename='assets/img/chatbox.png')}}"
             />
           </div>
-
-          <p class="about_text" data-aos="fade-left" data-aos-delay="450">
-            This system and direct diseases on its own.<br /><br />
-            Person can register, then can login to the system.<br /><br />
-            Chatbot using interactive voice commands.<br /><br />
-            This system generates summary reports.<br /><br />
-            If the system detects disease, it provides with information on which
-            doctor to be consulted in the future<br />
+          <div class="about_text" data-aos="fade-left" data-aos-delay="450" style="border-radius: 25px;background-color:rgba(255,255,255,1);padding:60px;"
+          <p  style="font-size:20px;">
+            1. user need to signup or singin to the system <br /><br>
+            2. after the sngin user need to upload the disease picture<br /><br>
+            3. system will predict the disease and suggest solutions<br />
           </p>
+          </div>
         </div>
+       </div>
       </section>
 
-      <section class="owner section" id="owner">
-        <div class="my_profile" data-aos="fade-left" data-aos-delay="50">
-          <h1>NAME</h1>
-          <img
-            src="{{url_for('static',filename='assets/img/chatbox.png')}}"
-            alt=""
-          />
-        </div>
+
+      <!-- clients SECTION -->
+      <br><br><br>
+      <section class="home bd_grid" id="">
+       <div class="home_data" data-aos="fade-down" style="border-radius: 25px;background-color:rgba(255,255,255,.6);padding:60px;">
+        <h2>They Trust in Dr.Tea</h2>
+        <br>
+        <div class="features_container bd_grid" class="about_text" data-aos="fade-right" data-aos-delay="650">
+
+          <div class="about_text" data-aos="fade-left" data-aos-delay="450" style="border-radius: 25px;background-color:rgba(255,255,255,1);padding:60px;">
+          <center><img src="{{url_for('static',filename='client.png')}}" width="100px"/></center><br>
+          <p  style="font-size:12px;">
+              I recently used Dr.Tea web and I must say, it's been a great experience. As a farmer, I've always struggled with identifying diseases in my tealeaves and often ended up losing a significant portion of my crop. However, this web has been a game-changer for me. The interface is user-friendly and easy to navigate. The predictions are accurate and have helped me identify diseases early on, allowing me to take preventive measures and minimize crop loss. The app has also helped me save time and money on consulting with experts and buying unnecessary pesticides. 
+
+          </p>
+          <h4>Neelamalai pathivara<br>Nilgiris,India</h4>
+          </div>
+          <div class="about_text" data-aos="fade-right" data-aos-delay="550" style="border-radius: 25px;background-color:rgba(255,255,255,1);padding:60px;">
+          <center><img src="{{url_for('static',filename='client.png')}}" width="100px"/></center><br>
+          <p  style="font-size:12px;">
+             I just wanted to write to express my gratitude for Dr.Tea. As a small-scale tea farmer, I often struggle to keep up with the latest information on tealeaf diseases and their prevention. This web has been a real helpful for me. It's incredibly easy to use and has already helped me identify and prevent the spread of several diseases in my tealeaves. The app's forecasts have been spot-on and timely, allowing me to respond swiftly and avoid substantial crop losses.
+
+          </p>
+          <h4>Feng-yao huang<br>Qilai,Hualien,Taiwan</h4>
+          </div>
+
+
+
+       </div>
+       </div>
       </section>
+
 
       <!-- Footer Section -->
       <footer class="footer">
-        <p class="footer_title" data-aos="fade-right">TeaGuard</p>
 
-        <div class="footer_socials">
-          <a
-            href="#"
-            class="footer_icon"
-            data-aos="fade-down"
-            data-aos-delay="250"
-            ><i class="bx bxl-facebook-circle"></i
-          ></a>
-          <a
-            href="#"
-            class="footer_icon"
-            data-aos="fade-down"
-            data-aos-delay="350"
-            ><i class="bx bxl-instagram"></i
-          ></a>
-          <a
-            href="#"
-            class="footer_icon"
-            data-aos="fade-down"
-            data-aos-delay="450"
-            ><i class="bx bxl-twitter"></i
-          ></a>
-          <a
-            href="#"
-            class="footer_icon"
-            data-aos="fade-down"
-            data-aos-delay="550"
-            ><i class="bx bxl-github"></i
-          ></a>
-        </div>
+        <div class="footer_socials" style="border-radius: 25px;background-color:rgba(255,255,255,.6);padding:60px;">
 
-        <p data-aos="fade-right" data-aos-delay="650">
+        <div data-aos="fade-right" data-aos-delay="650">
+        <p style="color:black">
           &#169; 2023 copyright all right reserved
         </p>
+        </div>
+        </div>
       </footer>
       <!--End of the Footer Section -->
     </main>
@@ -199,6 +277,18 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="{{url_for('static',filename = 'assets/js/main.js')}}"></script>
     <script>
+
+      function load() {
+         setTimeout(myURL, 5000);
+         var result = document.getElementById("load");
+         result.innerHTML = `<div class="loader"></div>`;
+      }
+
+      function myURL() {
+         var result = document.getElementById("load");
+         result.innerHTML = " ";
+         document.getElementById("cont").submit();
+      }
       AOS.init({ duration: 1200, once: false });
     </script>
   </body>

@@ -1,0 +1,64 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Disease-Prediction with A.I </title>
+    <link rel="stylesheet" href="{{url_for('static',filename = 'css/styles.css')}}"/>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://code.responsivevoice.org/responsivevoice.js"></script>
+
+  </head>
+  
+  <body style="background-image: linear-gradient(to right,white,green)">
+
+
+  <script>
+
+  function botResponse() {
+       
+           responsiveVoice.speak("rawText");
+          }
+  </script>
+    <main class="main" style="backg22round-color:rgba(2, 9, 71,0.2)">
+      <!-- HOME SECTION -->
+      <section class="home bd_grid" id="home" >
+
+        <div class="home_data" data-aos="fade-down" data-aos-delay="450" style="border-radius:25px;background-color:rgba(255,255,255,.5);padding:40px;height:200;">
+        <br>
+                <div data-aos="fade-down" data-aos-delay="800" style="border-radius:25px;background-color:rgba(255,255,255,1);padding:60px;;height:100;">
+                <center><h1 style="color:green">Submitted !</h1></center>
+                </div>
+                
+                  
+
+            
+          
+         
+         </div>
+       <br><br><br><br><br><br><br><br>
+      </section>
+      
+
+
+
+         
+    
+     
+
+ 
+      
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="{{url_for('static',filename = 'js/main.js')}}"></script>
+
+    <script>
+      AOS.init({
+        duration: 1200,
+        once: false,
+      });
+    </script>
+  </body>
+</html>
