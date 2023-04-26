@@ -167,7 +167,12 @@ def login():
            resli = []
            for r in res:
                resli.append(r)
-           return render_template("admin.html",results=resli)
+
+           res = con.execute("select * from contact")
+           res_c = []
+           for r in res:
+               res_c.append(r)   
+           return render_template("admin.html",results=resli,results_c=res_c)
         for row in cursor:
           count = count + 1
         if count>0:
@@ -205,13 +210,13 @@ def register():
 
 @app.route("/contact", methods = ['GET','POST'])
 def successd():
-     return render_template("success.html")
+     #return render_template("success.html")
      count = 0
      if request.method == 'POST':
        # get the user name from login form 
-        name = request.form.get('name') # get input values from form inputs using there name attribute
-        email = request.form.get('emailid')
-        mess = request.form.get('mess')
+        name = request.form.get('firstname') # get input values from form inputs using there name attribute
+        email = request.form.get('email')
+        mess = request.form.get('subject')
 
         con.execute("insert into contact values('"+name+"','"+email+"','"+mess+"')")
         con.commit()
