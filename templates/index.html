@@ -48,7 +48,7 @@ html {
 
 
 body {
-  display: flex;
+  
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -182,7 +182,33 @@ body {
 
 
 
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
 
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
 
 
 
@@ -194,12 +220,19 @@ body {
 
 
  <body style="background-image: linear-gradient(to right,white,green)">
-     
+
+  <div class="topnav">
+  <a class="active" href="/">Dr.Tea</a>
+  <a href="/loginpage" style="float:right;">Log out</a>
+
+  </div>  
 
 
 
   <!-- partial:index.partial.html -->
-  <section class="msger">
+  <center>
+  <section class="msger" style="height:500px;">
+
     <header class="msger-header" style="color:white;background:rgba(0,140,0,.6)">
       <div class="msger-header-title" >
         <i class="fas fa-bug" ></i> Dr. Tea for Disease-Prediction <i class="fas fa-bug"></i>
@@ -228,6 +261,7 @@ body {
     <form class="msger-inputarea">
       <input type="text" class="msger-input" id="textInput" placeholder="Enter your message...">
       <button type="submit" class="msger-send-btn" style="background:rgba(0,140,0,.6)">Send</button>
+ 
     </form>
   </section>
   <!-- partial -->
